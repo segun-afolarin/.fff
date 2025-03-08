@@ -1,0 +1,85 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  background: linear-gradient(45deg, #f06, #4a90e2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  animation: breathingBackground 6s infinite ease-in-out;
+}
+
+h1, p {
+  margin: 20px;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  transition: transform 0.3s, font-size 0.3s, color 0.3s;
+}
+
+.liquid-text {
+  display: inline-block;
+}
+
+.interactive-shape {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: shapeTransform 5s infinite ease-in-out;
+}
+
+/* Breathing background effect */
+@keyframes breathingBackground {
+  0% {
+    background: linear-gradient(45deg, #f06, #4a90e2);
+  }
+  50% {
+    background: linear-gradient(45deg, #4a90e2, #f06);
+  }
+  100% {
+    background: linear-gradient(45deg, #f06, #4a90e2);
+  }
+}
+
+/* Liquid text effect */
+body:hover .liquid-text {
+  transform: scale(1.2);
+  color: #ffeb3b;
+}
+
+body:active .liquid-text {
+  transform: scale(0.8);
+  color: #e91e63;
+}
+
+/* Shape morphing animation */
+@keyframes shapeTransform {
+  0% {
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    width: 200px;
+    height: 200px;
+  }
+  50% {
+    border-radius: 0%;
+    width: 300px;
+    height: 100px;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  100% {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
